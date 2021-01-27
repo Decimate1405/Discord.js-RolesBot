@@ -10,9 +10,9 @@ const client = new Client({
   partials: ["MESSAGE", "REACTION"],
 });
 
-const ping = require("./ping");
-const profRoles = require("./profRoles");
-const majorRoles = require("./majorRoles");
+const ping = require("./src/ping");
+const profRoles = require("./src/profRoles");
+const majorRoles = require("./src/majorRoles");
 
 const webhookClient = new WebhookClient(
   process.env.WEBHOOK_ID,
