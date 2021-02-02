@@ -13,7 +13,7 @@ module.exports = (client) => {
         .substring(PREFIX.length)
         .split(/\s+/);
       if (CMD_NAME === "majors") {
-        const channel = "782997997272301629";
+        const channel = "800556485209489438";
 
         // Roles
         const csRole = message.guild.roles.cache.find(
