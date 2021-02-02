@@ -1,5 +1,5 @@
 const PREFIX = "!";
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, Client } = require("discord.js");
 const client = new Client({
   partials: ["MESSAGE", "REACTION"],
 });
