@@ -1,5 +1,8 @@
 const PREFIX = "!";
 const { MessageEmbed } = require("discord.js");
+const client = new Client({
+  partials: ["MESSAGE", "REACTION"],
+});
 
 module.exports = (client) => {
   client.on("message", async (message) => {
