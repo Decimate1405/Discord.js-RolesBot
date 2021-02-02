@@ -1,7 +1,7 @@
 const PREFIX = "!";
 const { MessageEmbed, Client } = require("discord.js");
 const client = new Client({
-  partials: ["MESSAGE", "REACTION"],
+  partials: ["MESSAGE", "REACTION", "CHANNEL"],
 });
 
 module.exports = (client) => {
