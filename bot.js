@@ -28,5 +28,4 @@ client.on("ready", async () => {
   majorRoles(client);
 });
 
-//client.login(process.env.DISCORDJS_BOT_TOKEN);
-client.login("NDg0NDY1Mzk2MTYyNzU2NjI4.W4cHjw.N_kuWbsT_pC7uwXfmouLY42dq8M");
+client.login(process.env.TOKEN);
