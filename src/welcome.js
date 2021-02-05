@@ -9,13 +9,10 @@ module.exports = (client) => {
     console.log(member);
     const message = `Welcome <@${
       member.id
-    }> to our global union and revolution. Select a role in ${client.channels.cache
-      .get(rolesChannel)
-      .toString()}`;
+    }> to our global union and revolution. You are member ${
+      member.memberCount
+    }. Select a role in ${client.channels.cache.get(rolesChannel).toString()}`;
 
     client.channels.cache.get("798265379494690846").send(message);
-    client.channels.cache
-      .get("798265379494690846")
-      .send(client.guilds.cache.get(message.guild.id).memberCount);
   });
 };
