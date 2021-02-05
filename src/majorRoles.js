@@ -12,8 +12,8 @@ module.exports = (client) => {
         .trim()
         .substring(PREFIX.length)
         .split(/\s+/);
-      if (CMD_NAME === "majors") {
-        if (message.member.hasPermission === "KICK_MEMBERS") {
+      if (message.member.hasPermission("ADMINISTRATOR")) {
+        if (CMD_NAME === "majors") {
           const channel = "782997997272301629";
 
           // Roles
@@ -164,10 +164,6 @@ module.exports = (client) => {
               }
             }
           });
-        } else {
-          message.channel.send(
-            "You do not have permissions to use this command."
-          );
         }
       }
     }
