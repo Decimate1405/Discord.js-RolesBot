@@ -30,18 +30,4 @@ client.on("ready", async () => {
   welcome(client);
 });
 
-client.on("guildMemberAdd", (member) => {
-    const channelID = "798265379494690846";
-    const rolesChannel = "800556485209489438";
-    console.log(member);
-    const message = `Welcome <@${
-      member.id
-    }>. Select a role in ${client.guild.channels.get(rolesChannel).toString()}`;
-
-    const channel = client.guild.channels.cache.get(channelID);
-    channel.send(message);
-    message.member.send("Hi");
-    message.author.send("Lol");
-  });
-
 client.login(process.env.TOKEN);
