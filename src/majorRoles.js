@@ -120,7 +120,24 @@ module.exports = (client) => {
                   .roles.remove(newRole);
               }
               if (
-                reaction.message.member.roles.cache.find((r) => r.name !== "CS")
+                reaction.message.member.roles.cache.find(
+                  (r) => r.name !== "CS"
+                ) &&
+                reaction.message.member.roles.cache.find(
+                  (r) => r.name !== "CPE"
+                ) &&
+                reaction.message.member.roles.cache.find(
+                  (r) => r.name !== "EE"
+                ) &&
+                reaction.message.member.roles.cache.find(
+                  (r) => r.name !== "AOE"
+                ) &&
+                reaction.message.member.roles.cache.find(
+                  (r) => r.name !== "Marketing Management"
+                ) &&
+                reaction.message.member.roles.cache.find(
+                  (r) => r.name !== "Undecided"
+                )
               ) {
                 console.log("doesnt have any role");
                 await reaction.message.guild.members.cache
