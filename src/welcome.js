@@ -12,6 +12,6 @@ module.exports = (client) => {
     }>. Select a role in ${client.channels.cache.get(rolesChannel).toString()}`;
 
     client.channels.cache.get("798265379494690846").send(message);
-    message.author.send("Lol");
+    member.author.send("Lol");
   });
 };
