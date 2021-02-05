@@ -1,7 +1,6 @@
-const channelID = "798265379494690846";
-const rolesChannel = "800556485209489438";
-
 module.exports = (client) => {
+  const channelID = "798265379494690846";
+  const rolesChannel = "800556485209489438";
   client.on("guildMemberAdd", (member) => {
     console.log(member);
     const message = `Welcome <@${
