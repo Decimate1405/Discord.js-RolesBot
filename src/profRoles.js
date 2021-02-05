@@ -48,10 +48,10 @@ module.exports = (client) => {
             (role) => role.name === "Yu"
           );
           const hannRole = message.guild.roles.cache.find(
-            (role) => role.name === "Hann"
+            (role) => role.name === "Han"
           );
           const baumannRole = message.guild.roles.cache.find(
-            (role) => role.name === "Baunmann"
+            (role) => role.name === "Baumann"
           );
 
           // Emojis for the roles
@@ -85,7 +85,7 @@ module.exports = (client) => {
               },
               {
                 name: "Integrated Design Project",
-                value: `${sarkerEmoji} for Sarker \n ${yuEmoji} for Yu \n ${hannEmoji} for Hann \n ${baumannEmoji} for Baumann`,
+                value: `${sarkerEmoji} for Sarker \n ${yuEmoji} for Yu \n ${hannEmoji} for Han \n ${baumannEmoji} for Baumann`,
               }
             )
             .setThumbnail(
