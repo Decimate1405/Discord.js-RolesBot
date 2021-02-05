@@ -12,6 +12,6 @@ module.exports = (client) => {
     }> to our global union and revolution. Select a role in ${client.channels.cache
       .get(rolesChannel)
       .toString()}`;
-    client.channels.cache.get("798265379494690846").send(message);
+    client.channels.cache.get("807289646350336040").send(message);
   });
 };
