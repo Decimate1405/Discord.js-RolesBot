@@ -28,4 +28,8 @@ client.on("ready", async () => {
   majorRoles(client);
 });
 
+client.on("guildMemberAdd", (member) => {
+  member.send("Roles");
+});
+
 client.login(process.env.TOKEN);
