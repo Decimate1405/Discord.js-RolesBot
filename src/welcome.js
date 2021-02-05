@@ -12,7 +12,6 @@ module.exports = (client) => {
     }> to our global union and revolution. You are member ${
       member.memberCount
     }. Select a role in ${client.channels.cache.get(rolesChannel).toString()}`;
-    console.log(guild.members.cache.filter((member) => !member.user.bot).size);
     client.channels.cache.get("798265379494690846").send(message);
   });
 };
