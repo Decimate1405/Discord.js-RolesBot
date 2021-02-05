@@ -229,7 +229,7 @@ module.exports = (client) => {
                     (r) => r.name !== "CS"
                   ))
               ) {
-                return;
+                console.log(r);
               } else {
                 await reaction.message.guild.members.cache
                   .get(user.id)
