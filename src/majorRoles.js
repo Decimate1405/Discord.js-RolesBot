@@ -118,6 +118,11 @@ module.exports = (client) => {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(newRole);
+              }if ((reaction.message.member.roles.find(r => r.name === "CS")) {
+                console.log("doesnt have any role")
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.add(newRole);
               } else {
                 return;
               }
@@ -134,49 +139,31 @@ module.exports = (client) => {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(csRole);
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(newRole);
               }
               if (reaction.emoji.name === cpeEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(cpeRole);
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(newRole);
               }
               if (reaction.emoji.name === eeEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(eeRole);
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(newRole);
               }
               if (reaction.emoji.name === aoeEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(aoeRole);
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(newRole);
               }
               if (reaction.emoji.name === marketingEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(marketingRole);
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(newRole);
               }
               if (reaction.emoji.name === undecidedEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(undecidedRole);
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(newRole);
               } else {
                 return;
               }
