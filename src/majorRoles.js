@@ -161,10 +161,10 @@ module.exports = (client) => {
                   .roles.remove(undecidedRole);
               }
               if (
-                reaction.member.roles.find((r) => r.name !== "CS") &&
-                reaction.member.roles.find((r) => r.name !== "CPE") &&
-                reaction.member.roles.find((r) => r.name !== "EE") &&
-                reaction.member.roles.find((r) => r.name !== "AOE")
+                reaction.member.roles.cache.find((r) => r.name !== "CS") &&
+                reaction.member.roles.cache.find((r) => r.name !== "CPE") &&
+                reaction.member.roles.cache.find((r) => r.name !== "EE") &&
+                reaction.member.roles.cache.find((r) => r.name !== "AOE")
               ) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
