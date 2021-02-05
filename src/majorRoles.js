@@ -162,22 +162,22 @@ module.exports = (client) => {
               }
               if (
                 reaction.message.member.roles.cache.find(
-                  (r) => r.name != "CS"
+                  (r) => r.name !== "CS"
                 ) &&
                 reaction.message.member.roles.cache.find(
-                  (r) => r.name != "CPE"
+                  (r) => r.name !== "CPE"
                 ) &&
                 reaction.message.member.roles.cache.find(
-                  (r) => r.name != "EE"
+                  (r) => r.name !== "EE"
                 ) &&
                 reaction.message.member.roles.cache.find(
-                  (r) => r.name != "AOE"
+                  (r) => r.name !== "AOE"
                 ) &&
                 reaction.message.member.roles.cache.find(
-                  (r) => r.name != "Marketing Management"
+                  (r) => r.name !== "Marketing Management"
                 ) &&
                 reaction.message.member.roles.cache.find(
-                  (r) => r.name != "Undecided"
+                  (r) => r.name !== "Undecided"
                 )
               ) {
                 console.log("doesnt have any role");
