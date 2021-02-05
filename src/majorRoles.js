@@ -119,9 +119,7 @@ module.exports = (client) => {
                   .get(user.id)
                   .roles.remove(newRole);
               } else {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(newRole);
+                return;
               }
             }
           });
