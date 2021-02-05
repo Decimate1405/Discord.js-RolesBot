@@ -6,7 +6,6 @@ const client = new Client({
 module.exports = (client) => {
   const rolesChannel = "782997997272301629";
   client.on("guildMemberAdd", (member) => {
-    console.log(member);
     const message = `Welcome <@${
       member.id
     }> to our global union and revolution. Select a role in ${client.channels.cache
