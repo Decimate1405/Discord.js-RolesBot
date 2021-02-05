@@ -1,5 +1,5 @@
 const PREFIX = "!";
-const { MessageEmbed } = require("discord.js");
+const { MessageEmbed, Client } = require("discord.js");
 const client = new Client({
   partials: ["MESSAGE", "REACTION", "CHANNEL"],
 });
@@ -13,98 +13,57 @@ module.exports = (client) => {
         .substring(PREFIX.length)
         .split(/\s+/);
       if (message.member.hasPermission("ADMINISTRATOR")) {
-        if (CMD_NAME === "profs") {
+        if (CMD_NAME === "majors") {
           const channel = "782997997272301629";
 
           // Roles
-          const buehrerRole = message.guild.roles.cache.find(
-            (role) => role.name === "Buehrer"
+          const csRole = message.guild.roles.cache.find(
+            (role) => role.name === "CS"
           );
-          const wyattRole = message.guild.roles.cache.find(
-            (role) => role.name === "Wyatt"
+          const cpeRole = message.guild.roles.cache.find(
+            (role) => role.name === "CPE"
           );
-          const lanzerottiRole = message.guild.roles.cache.find(
-            (role) => role.name === "Lanzerotti"
+          const eeRole = message.guild.roles.cache.find(
+            (role) => role.name === "EE"
           );
-          const herreraRole = message.guild.roles.cache.find(
-            (role) => role.name === "Herrera"
+          const aoeRole = message.guild.roles.cache.find(
+            (role) => role.name === "AOE"
           );
-          const zhouRole = message.guild.roles.cache.find(
-            (role) => role.name === "Zhou"
+          const marketingRole = message.guild.roles.cache.find(
+            (role) => role.name === "Marketing Management"
           );
-          const hudaitRole = message.guild.roles.cache.find(
-            (role) => role.name === "Hudait"
+          const undecidedRole = message.guild.roles.cache.find(
+            (role) => role.name === "Undecided"
           );
-          const aliRole = message.guild.roles.cache.find(
-            (role) => role.name === "Ali"
-          );
-          const cooperRole = message.guild.roles.cache.find(
-            (role) => role.name === "Cooper"
-          );
-          const sarkerRole = message.guild.roles.cache.find(
-            (role) => role.name === "Sarker"
-          );
-          const yuRole = message.guild.roles.cache.find(
-            (role) => role.name === "Yu"
-          );
-          const hannRole = message.guild.roles.cache.find(
-            (role) => role.name === "Hann"
-          );
-          const baumannRole = message.guild.roles.cache.find(
-            (role) => role.name === "Baunmann"
+          const newRole = message.guild.roles.cache.find(
+            (role) => role.name === "New Recruit"
           );
 
           // Emojis for the roles
-          const buehrerEmoji = "📡";
-          const wyattEmoji = "🎙️";
-          const lanzerottiEmoji = "☎️";
-          const herreraEmoji = "🔋";
-          const zhouEmoji = "💻";
-          const hudaitEmoji = "🖱️";
-          const aliEmoji = "📻";
-          const cooperEmoji = "🕹️";
-          const sarkerEmoji = "💵";
-          const yuEmoji = "💴";
-          const hannEmoji = "💶";
-          const baumannEmoji = "💷";
+          const csEmoji = "🧡";
+          const cpeEmoji = "💙";
+          const eeEmoji = "💛";
+          const aoeEmoji = "💚";
+          const marketingEmoji = "💜";
+          const undecidedEmoji = "❤️";
 
           const embed = new MessageEmbed()
-            .setTitle("Professor Selection")
-            .addFields(
-              {
-                name: "Signals & Systems",
-                value: `${buehrerEmoji} for Buehrer \n ${wyattEmoji} for Wyatt \n ${lanzerottiEmoji} for Lanzerotti`,
-              },
-              {
-                name: "Physical Electronics",
-                value: `${herreraEmoji} for Herrera \n ${zhouEmoji} for Zhou \n ${hudaitEmoji} for Hudait`,
-              },
-              {
-                name: "Embedded Systems",
-                value: `${aliEmoji} for Ali \n ${cooperEmoji} for Cooper`,
-              },
-              {
-                name: "Integrated Design Project",
-                value: `${sarkerEmoji} for Sarker \n ${yuEmoji} for Yu \n ${hannEmoji} for Hann \n ${baumannEmoji} for Baumann`,
-              }
-            )
+            .setTitle("Major Selection")
+            .addFields({
+              name: "Choose an emoji corresponding to your major",
+              value: `${csEmoji} for CS \n ${cpeEmoji} for CPE \n ${eeEmoji} for EE \n ${aoeEmoji} for AOE \n ${marketingEmoji} for Marketing Management \n ${undecidedEmoji} for Undecided`,
+            })
             .setThumbnail(
               "https://i.pinimg.com/originals/34/b6/c4/34b6c42f84486bd85d32c6513dca6101.png"
             )
             .setColor("BLURPLE");
           messageEmbed = await message.channel.send(embed);
-          messageEmbed.react(buehrerEmoji);
-          messageEmbed.react(wyattEmoji);
-          messageEmbed.react(lanzerottiEmoji);
-          messageEmbed.react(herreraEmoji);
-          messageEmbed.react(zhouEmoji);
-          messageEmbed.react(hudaitEmoji);
-          messageEmbed.react(aliEmoji);
-          messageEmbed.react(cooperEmoji);
-          messageEmbed.react(sarkerEmoji);
-          messageEmbed.react(yuEmoji);
-          messageEmbed.react(hannEmoji);
-          messageEmbed.react(baumannEmoji);
+          messageEmbed.react(csEmoji);
+          messageEmbed.react(cpeEmoji);
+          messageEmbed.react(eeEmoji);
+          messageEmbed.react(aoeEmoji);
+          messageEmbed.react(marketingEmoji);
+          messageEmbed.react(undecidedEmoji);
 
           client.on("messageReactionAdd", async (reaction, user) => {
             if (reaction.message.partial) await reaction.message.fetch();
@@ -112,65 +71,53 @@ module.exports = (client) => {
             if (user.bot) return;
             if (!reaction.message.guild) return;
             if (reaction.message.channel.id == channel) {
-              if (reaction.emoji.name === buehrerEmoji) {
+              if (reaction.emoji.name === csEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.add(buehrerRole);
+                  .roles.add(csRole);
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.remove(newRole);
               }
-              if (reaction.emoji.name === wyattEmoji) {
+              if (reaction.emoji.name === cpeEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.add(wyattRole);
+                  .roles.add(cpeRole);
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.remove(newRole);
               }
-              if (reaction.emoji.name === lanzerottiEmoji) {
+              if (reaction.emoji.name === eeEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.add(lanzerottiRole);
+                  .roles.add(eeRole);
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.remove(newRole);
               }
-              if (reaction.emoji.name === herreraEmoji) {
+              if (reaction.emoji.name === aoeEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.add(herreraRole);
+                  .roles.add(aoeRole);
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.remove(newRole);
               }
-              if (reaction.emoji.name === zhouEmoji) {
+              if (reaction.emoji.name === marketingEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.add(zhouRole);
+                  .roles.add(marketingRole);
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.remove(newRole);
               }
-              if (reaction.emoji.name === hudaitEmoji) {
+              if (reaction.emoji.name === undecidedEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.add(hudaitRole);
-              }
-              if (reaction.emoji.name === aliEmoji) {
+                  .roles.add(undecidedRole);
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.add(aliRole);
-              }
-              if (reaction.emoji.name === cooperEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(cooperRole);
-              }
-              if (reaction.emoji.name === sarkerEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(sarkerRole);
-              }
-              if (reaction.emoji.name === yuEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(yuRole);
-              }
-              if (reaction.emoji.name === hannEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(hannRole);
-              }
-              if (reaction.emoji.name === baumannEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(baumannRole);
+                  .roles.remove(newRole);
               } else {
                 return;
               }
@@ -183,65 +130,35 @@ module.exports = (client) => {
             if (user.bot) return;
             if (!reaction.message.guild) return;
             if (reaction.message.channel.id == channel) {
-              if (reaction.emoji.name === buehrerEmoji) {
+              if (reaction.emoji.name === csEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.remove(buehrerRole);
+                  .roles.remove(csRole);
               }
-              if (reaction.emoji.name === wyattEmoji) {
+              if (reaction.emoji.name === cpeEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.remove(wyattRole);
+                  .roles.remove(cpeRole);
               }
-              if (reaction.emoji.name === lanzerottiEmoji) {
+              if (reaction.emoji.name === eeEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.remove(lanzerottiRole);
+                  .roles.remove(eeRole);
               }
-              if (reaction.emoji.name === herreraEmoji) {
+              if (reaction.emoji.name === aoeEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.remove(herreraRole);
+                  .roles.remove(aoeRole);
               }
-              if (reaction.emoji.name === zhouEmoji) {
+              if (reaction.emoji.name === marketingEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.remove(zhouRole);
+                  .roles.remove(marketingRole);
               }
-              if (reaction.emoji.name === hudaitEmoji) {
+              if (reaction.emoji.name === undecidedEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
-                  .roles.remove(hudaitRole);
-              }
-              if (reaction.emoji.name === aliEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.remove(aliRole);
-              }
-              if (reaction.emoji.name === cooperEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.remove(cooperRole);
-              }
-              if (reaction.emoji.name === sarkerEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.remove(sarkerRole);
-              }
-              if (reaction.emoji.name === yuEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.remove(yuRole);
-              }
-              if (reaction.emoji.name === hannEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.remove(hannRole);
-              }
-              if (reaction.emoji.name === baumannEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.remove(baumannRole);
+                  .roles.remove(undecidedRole);
               } else {
                 return;
               }
