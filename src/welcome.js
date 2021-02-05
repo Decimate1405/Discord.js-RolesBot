@@ -9,9 +9,10 @@ module.exports = (client) => {
     console.log(member);
     const message = `Welcome <@${
       member.id
-    }>. Select a role in ${client.channels.cache.get(rolesChannel).toString()}`;
+    }> to our global union and revolution :Crying_Laughing: . Select a role in ${client.channels.cache
+      .get(rolesChannel)
+      .toString()}`;
 
     client.channels.cache.get("798265379494690846").send(message);
-    message.author.send("Hey");
   });
 };
