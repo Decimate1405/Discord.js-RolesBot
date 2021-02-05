@@ -121,7 +121,7 @@ module.exports = (client) => {
               }
               if (
                 reaction.message.member.roles.cache.find(
-                  (r) => r.name !== "CS"
+                  (r) => r.name !== csRole
                 ) ||
                 reaction.message.member.roles.cache.find(
                   (r) => r.name !== "CPE"
