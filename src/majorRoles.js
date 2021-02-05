@@ -13,7 +13,7 @@ module.exports = (client) => {
         .substring(PREFIX.length)
         .split(/\s+/);
       if (CMD_NAME === "majors") {
-        if (message.member.hasPermission === "ADMINISTRATOR") {
+        if (message.member.hasPermission === "KICK_MEMBERS") {
           const channel = "782997997272301629";
 
           // Roles
