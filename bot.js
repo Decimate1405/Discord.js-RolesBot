@@ -30,8 +30,4 @@ client.on("ready", async () => {
   welcome(client);
 });
 
-client.on("guildMemberAdd", (member) => {
-  member.send("Roles");
-});
-
 client.login(process.env.TOKEN);
