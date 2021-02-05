@@ -13,6 +13,7 @@ const client = new Client({
 const ping = require("./src/ping");
 const profRoles = require("./src/profRoles");
 const majorRoles = require("./src/majorRoles");
+const welcome = require("./src/welcome");
 
 const webhookClient = new WebhookClient(
   process.env.WEBHOOK_ID,
@@ -26,6 +27,7 @@ client.on("ready", async () => {
   ping(client);
   profRoles(client);
   majorRoles(client);
+  welcome(client);
 });
 
 client.on("guildMemberAdd", (member) => {
