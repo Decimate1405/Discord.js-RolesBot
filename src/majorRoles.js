@@ -79,40 +79,35 @@ module.exports = (client) => {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(newRole);
-              }
-              if (reaction.emoji.name === cpeEmoji) {
+              } else if (reaction.emoji.name === cpeEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.add(cpeRole);
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(newRole);
-              }
-              if (reaction.emoji.name === eeEmoji) {
+              } else if (reaction.emoji.name === eeEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.add(eeRole);
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(newRole);
-              }
-              if (reaction.emoji.name === aoeEmoji) {
+              } else if (reaction.emoji.name === aoeEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.add(aoeRole);
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(newRole);
-              }
-              if (reaction.emoji.name === marketingEmoji) {
+              } else if (reaction.emoji.name === marketingEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.add(marketingRole);
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(newRole);
-              }
-              if (reaction.emoji.name === undecidedEmoji) {
+              } else if (reaction.emoji.name === undecidedEmoji) {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.add(undecidedRole);
@@ -120,7 +115,9 @@ module.exports = (client) => {
                   .get(user.id)
                   .roles.remove(newRole);
               } else {
-                return;
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.add(newRole);
               }
             }
           });
