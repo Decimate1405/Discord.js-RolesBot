@@ -161,31 +161,120 @@ module.exports = (client) => {
                   .roles.remove(undecidedRole);
               }
               if (
-                reaction.message.member.roles.cache.find(
-                  (r) => r.name !== "CS"
+                (reaction.message.member.roles.cache.find(
+                  (r) => r.name === "CS"
                 ) &&
-                reaction.message.member.roles.cache.find(
-                  (r) => r.name !== "CPE"
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "CPE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "EE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "AOE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "Marketing Management"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "Undecided"
+                  )) ||
+                (reaction.message.member.roles.cache.find(
+                  (r) => r.name === "CPE"
                 ) &&
-                reaction.message.member.roles.cache.find(
-                  (r) => r.name !== "EE"
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "CS"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "EE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "AOE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "Marketing Management"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "Undecided"
+                  )) ||
+                (reaction.message.member.roles.cache.find(
+                  (r) => r.name === "EE"
                 ) &&
-                reaction.message.member.roles.cache.find(
-                  (r) => r.name !== "AOE"
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "CPE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "CS"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "AOE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "Marketing Management"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "Undecided"
+                  )) ||
+                (reaction.message.member.roles.cache.find(
+                  (r) => r.name === "AOE"
                 ) &&
-                reaction.message.member.roles.cache.find(
-                  (r) => r.name !== "Marketing Management"
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "CPE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "EE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "CS"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "Marketing Management"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "Undecided"
+                  )) ||
+                (reaction.message.member.roles.cache.find(
+                  (r) => r.name === "Marketing Management"
                 ) &&
-                reaction.message.member.roles.cache.find(
-                  (r) => r.name !== "Undecided"
-                )
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "CPE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "EE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "AOE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "CS"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "Undecided"
+                  )) ||
+                (reaction.message.member.roles.cache.find(
+                  (r) => r.name === "Undecided"
+                ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "CPE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "EE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "AOE"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "Marketing Management"
+                  ) &&
+                  reaction.message.member.roles.cache.find(
+                    (r) => r.name !== "CS"
+                  ))
               ) {
-                console.log("doesnt have any role");
+                return;
+              } else {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.add(newRole);
-              } else {
-                return;
               }
             }
           });
