@@ -119,7 +119,9 @@ module.exports = (client) => {
                   .get(user.id)
                   .roles.remove(newRole);
               }
-              if (reaction.message.member.roles.find((r) => r.name === "CS")) {
+              if (
+                reaction.message.member.roles.cache.find((r) => r.name === "CS")
+              ) {
                 console.log("doesnt have any role");
                 await reaction.message.guild.members.cache
                   .get(user.id)
