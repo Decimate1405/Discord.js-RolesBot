@@ -118,6 +118,47 @@ module.exports = (client) => {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(newRole);
+              } else {
+                return;
+              }
+            }
+          });
+
+          client.on("messageReactionRemove", async (reaction, user) => {
+            if (reaction.message.partial) await reaction.message.fetch();
+            if (reaction.partial) await reaction.fetch();
+            if (user.bot) return;
+            if (!reaction.message.guild) return;
+            if (reaction.message.channel.id == channel) {
+              if (reaction.emoji.name === csEmoji) {
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.remove(csRole);
+              }
+              if (reaction.emoji.name === cpeEmoji) {
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.remove(cpeRole);
+              }
+              if (reaction.emoji.name === eeEmoji) {
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.remove(eeRole);
+              }
+              if (reaction.emoji.name === aoeEmoji) {
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.remove(aoeRole);
+              }
+              if (reaction.emoji.name === marketingEmoji) {
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.remove(marketingRole);
+              }
+              if (reaction.emoji.name === undecidedEmoji) {
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.remove(undecidedRole);
               }
               if (
                 (reaction.message.member.roles.cache.find(
@@ -234,47 +275,6 @@ module.exports = (client) => {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.add(newRole);
-              }
-            }
-          });
-
-          client.on("messageReactionRemove", async (reaction, user) => {
-            if (reaction.message.partial) await reaction.message.fetch();
-            if (reaction.partial) await reaction.fetch();
-            if (user.bot) return;
-            if (!reaction.message.guild) return;
-            if (reaction.message.channel.id == channel) {
-              if (reaction.emoji.name === csEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.remove(csRole);
-              }
-              if (reaction.emoji.name === cpeEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.remove(cpeRole);
-              }
-              if (reaction.emoji.name === eeEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.remove(eeRole);
-              }
-              if (reaction.emoji.name === aoeEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.remove(aoeRole);
-              }
-              if (reaction.emoji.name === marketingEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.remove(marketingRole);
-              }
-              if (reaction.emoji.name === undecidedEmoji) {
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.remove(undecidedRole);
-              } else {
-                return;
               }
             }
           });
