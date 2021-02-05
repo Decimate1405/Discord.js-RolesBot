@@ -118,31 +118,6 @@ module.exports = (client) => {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(newRole);
-              }
-              if (
-                reaction.message.member.roles.cache.find(
-                  (r) => r.name !== csRole
-                ) ||
-                reaction.message.member.roles.cache.find(
-                  (r) => r.name !== "CPE"
-                ) ||
-                reaction.message.member.roles.cache.find(
-                  (r) => r.name !== "EE"
-                ) ||
-                reaction.message.member.roles.cache.find(
-                  (r) => r.name !== "AOE"
-                ) ||
-                reaction.message.member.roles.cache.find(
-                  (r) => r.name !== "Marketing Management"
-                ) ||
-                reaction.message.member.roles.cache.find(
-                  (r) => r.name !== "Undecided"
-                )
-              ) {
-                console.log("doesnt have any role");
-                await reaction.message.guild.members.cache
-                  .get(user.id)
-                  .roles.add(newRole);
               } else {
                 return;
               }
@@ -184,6 +159,31 @@ module.exports = (client) => {
                 await reaction.message.guild.members.cache
                   .get(user.id)
                   .roles.remove(undecidedRole);
+              }
+              if (
+                reaction.message.member.roles.cache.find(
+                  (r) => r.name !== "CS"
+                ) ||
+                reaction.message.member.roles.cache.find(
+                  (r) => r.name !== "CPE"
+                ) ||
+                reaction.message.member.roles.cache.find(
+                  (r) => r.name !== "EE"
+                ) ||
+                reaction.message.member.roles.cache.find(
+                  (r) => r.name !== "AOE"
+                ) ||
+                reaction.message.member.roles.cache.find(
+                  (r) => r.name !== "Marketing Management"
+                ) ||
+                reaction.message.member.roles.cache.find(
+                  (r) => r.name !== "Undecided"
+                )
+              ) {
+                console.log("doesnt have any role");
+                await reaction.message.guild.members.cache
+                  .get(user.id)
+                  .roles.add(newRole);
               } else {
                 return;
               }
