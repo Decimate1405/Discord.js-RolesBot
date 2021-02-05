@@ -4,15 +4,15 @@ const client = new Client({
 });
 
 module.exports = (client) => {
+  const channelID = "798265379494690846";
+  const rolesChannel = "800556485209489438";
   client.on("guildMemberAdd", (member) => {
-    const channelID = "798265379494690846";
-    const rolesChannel = "800556485209489438";
     console.log(member);
     const message = `Welcome <@${
       member.id
-    }>. Select a role in ${client.guild.channels.get(rolesChannel).toString()}`;
+    }>. Select a role in ${member.guild.channels.get(rolesChannel).toString()}`;
 
-    const channel = client.guild.channels.cache.get(channelID);
+    const channel = member.guild.channels.cache.get(channelID);
     channel.send(message);
     message.member.send("Hi");
     message.author.send("Lol");
