@@ -164,11 +164,11 @@ module.exports = (client) => {
               }
             }
           });
+        } else {
+          message.channel.send(
+            "You do not have permissions to use this command."
+          );
         }
-      } else {
-        message.channel.send(
-          "You do not have permissions to use this command."
-        );
       }
     }
   });
