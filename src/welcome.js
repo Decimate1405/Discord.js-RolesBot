@@ -12,9 +12,9 @@ module.exports = (client) => {
       member.id
     }>, welcome to our global union and revolution ${
       member.guild.name
-    }.You are member ${
+    }!\nYou are member ${
       member.guild.memberCount
-    }! Please go to ${client.channels.cache
+    }!\nPlease go to ${client.channels.cache
       .get(rolesChannel)
       .toString()} to pick a major and a professor role`;
 
