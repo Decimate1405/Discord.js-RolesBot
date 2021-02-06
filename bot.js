@@ -14,6 +14,8 @@ const ping = require("./src/ping");
 const profRoles = require("./src/profRoles");
 const majorRoles = require("./src/majorRoles");
 const welcome = require("./src/welcome");
+const joinSim = require("./src/joinSim");
+const serverInfo = require("./src/serverInfo");
 
 const webhookClient = new WebhookClient(
   process.env.WEBHOOK_ID,
@@ -28,6 +30,8 @@ client.on("ready", async () => {
   profRoles(client);
   majorRoles(client);
   welcome(client);
+  joinSim(client);
+  serverInfo(client);
 });
 
 client.login(process.env.TOKEN);
