@@ -23,7 +23,6 @@ module.exports = (client) => {
           premiumTier,
           id,
         } = guild;
-        console.log(guild);
         const icon = guild.iconURL();
         const user = "DeciMat3#6969";
         const embed = new MessageEmbed()
